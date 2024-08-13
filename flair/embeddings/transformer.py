@@ -1083,8 +1083,9 @@ class TransformerEmbeddings(TransformerBaseEmbeddings):
                     model, config=config, **transformers_model_kwargs, **kwargs
                 )
             else:
+                kwargs= {}
                 transformer_model = AutoModel.from_pretrained(
-                    model, config=config, **transformers_model_kwargs, **kwargs
+                    "deepset/bert-base-german-cased-oldvocab", config=config, **transformers_model_kwargs, **kwargs
                 )
         else:
             if is_supported_t5_model(saved_config):
